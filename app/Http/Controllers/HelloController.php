@@ -36,7 +36,7 @@ class HelloController extends Controller
         global $head, $style, $body, $end;
 
         $html = $head . tag('title','Hello/other') . $style
-                . $body . tag('h1', 'Other') . tag('p', 'this is Index page')
+                . $body . tag('h1', 'Other') . tag('p', 'this is Other page')
                 . $end;
                 return $html;
     }
