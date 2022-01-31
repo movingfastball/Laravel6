@@ -11,7 +11,7 @@
     <form action="/hello/del" method="post">
         <table>
             @csrf
-            <input type="hidden" name="id" value="{{ form->id }}">
+            <input type="hidden" name="id" value="{{ $form->id }}">
             <tr>
                 <th>name: </th>
                 <td>{{ $form->name }}</td>
