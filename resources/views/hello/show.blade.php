@@ -18,6 +18,8 @@
                 <td width="50px">{{ $item->name }}</td>
             </tr>
         </table>
+        @endforeach
+    @endif
 @endsection
 
 @section('footer')
