@@ -12,7 +12,7 @@
         <tr>
             <th>Data</th>
         </tr>
-        @foreach ($items as $items)
+        @foreach ($items as $item)
             <tr>
                 <td>{{ $item->getData() }}</th>
             </tr>
