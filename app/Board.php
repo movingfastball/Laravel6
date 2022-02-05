@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Borad extends Model
+class Board extends Model
 {
     protected $guarded = array('id');
 
