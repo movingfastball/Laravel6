@@ -21,6 +21,6 @@ class Board extends Model
 
     public function person()
     {
-        return $this->belongTo('App\Person');
+        return $this->belongsTo('App\Person');
     }
 }
