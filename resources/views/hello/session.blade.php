@@ -1,0 +1,20 @@
+@extends('layouts.helloapp')
+
+@section('title', 'Session')
+
+@section('menuber')
+    @parent
+    セッションページ
+@endsection
+
+@section('content')
+    <form action="/hello/session" method="post">
+        @csrf
+        <input type="text" name="input">
+        <input type="submit" name="input">
+    </form>
+@endsection
+
+@section('footer')
+copyright
+@endsection
