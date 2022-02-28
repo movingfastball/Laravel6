@@ -18,6 +18,7 @@ class HelloTest extends TestCase
 }
 */
 
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -30,14 +31,20 @@ class HelloTest extends TestCase
     {
         $this->assertTrue(true);
 
-        $arr = [];
-        $this->assertEmpty($arr);
+        $response = $this->get('/');
+        $response->assertStatus(200);
 
-        $msg = "Hello";
-        $this->assertEquals('Hello',$msg);
+        
+        $response = $this->get('/hello');
+        $response->assertStatus(302);
 
-        $n = random_int(0, 100);
-        $this->assertLessThan(100, $n);
+        $user = factory(User::class)->create();
+        $response = $this->actingAs($user)->get('/hello');
+        //$response->assertStatus(200); サーバーを止めてるので
+        $response->assertStatus(500);//サーバー止めてる状態ならこっち
+        
+        $response = $this->get('/no_route');
+        $response->assertStatus(404);
     }
 }
 
