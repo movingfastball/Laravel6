@@ -28,7 +28,7 @@ class HelloTest extends TestCase
 
     public function testHello()
     {
-        $test->assertTrue(true);
+        $this->assertTrue(true);
 
         $arr = [];
         $this->assertEmpty($arr);
