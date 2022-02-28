@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', 'HelloController@index');
+Route::get('hello', 'HelloController@index')->middleware('auth');
+
+
 Route::post('hello', 'HelloController@post');
 Route::get('hello/add', 'HelloController@add');
 Route::post('hello/add', 'HelloController@create');
@@ -40,3 +42,15 @@ Route::get('board', 'BoardController@index');
 Route::get('board/add', 'BoardController@add');
 Route::post('board/add', 'BoardController@create');
 
+Route::resource('rest', 'RestappController');
+Route::get('hello/rest', 'HelloController@rest');
+Route::get('hello/session', 'HelloController@ses_get');
+Route::post('hello/session', 'HelloController@ses_put');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('hello/auth', 'HelloController@getAuth');
+Route::post('hello/auth', 'HelloController@postAuth');
